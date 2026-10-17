@@ -1,0 +1,199 @@
+import React from 'react';
+import { X, Clock, Layers, Cpu, Globe2, Compass } from 'lucide-react';
+import { StatusBadge } from './StatusBadge';
+
+export type EcosystemEntity = 'chain' | 'oracle' | 'explorer' | 'vortex';
+
+interface EcosystemStatusModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  entity: EcosystemEntity | null;
+}
+
+const ENTITY_DETAILS: Record<
+  EcosystemEntity,
+  {
+    name: string;
+    tagline: string;
+    role: string;
+    description: string;
+    technicalOverview: string[];
+    officialUrlNotice: string;
+    status: 'COMING SOON' | 'UNDER DEVELOPMENT';
+    icon: React.ElementType;
+  }
+> = {
+  chain: {
+    name: 'MONETA CHAIN',
+    tagline: 'Decentralized High-Performance Blockchain Network',
+    role: 'Autonomous Consensus Layer',
+    description:
+      'MONETA CHAIN is a decentralized, high-throughput, low-latency layer-1 public blockchain designed for financial integrity, high concurrency, and censorship resistance.',
+    technicalOverview: [
+      'Proof-of-Stake consensus with randomized committee finality',
+      'Native asynchronous sharding for scalable global state',
+      'Sub-second settlement with predictable, minimal network fees',
+      'Independent cryptographic validator network spanning multiple continents',
+    ],
+    officialUrlNotice: 'Official mainnet explorer and network portal are currently in staging.',
+    status: 'COMING SOON',
+    icon: Layers,
+  },
+  oracle: {
+    name: 'MONETA ORACLE',
+    tagline: 'Decentralized Deterministic Data Feeds',
+    role: 'Cryptographic Oracle Infrastructure',
+    description:
+      'MONETA ORACLE provides tamper-resistant real-world data pipelines, financial exchange rates, and verifiable randomness for smart contracts running across the MONETA ecosystem.',
+    technicalOverview: [
+      'Multi-source cryptographic threshold aggregation',
+      'Sub-second price update frequency for DeFi rails',
+      'Zero-knowledge proof validity proofs for cross-chain data verification',
+      'Independent node operator quorum protection',
+    ],
+    officialUrlNotice: 'Developer documentation and oracle feed telemetry will launch with the public testnet.',
+    status: 'UNDER DEVELOPMENT',
+    icon: Cpu,
+  },
+  explorer: {
+    name: 'MONETA EXPLORER',
+    tagline: 'Transparent Block & State Inspection Portal',
+    role: 'Network Telemetry & Ledger Auditability',
+    description:
+      'MONETA EXPLORER provides real-time transaction tracking, smart contract source verification, validator metrics, and consensus telemetry for the MONETA CHAIN network.',
+    technicalOverview: [
+      'Live block, epoch, and transaction visualizer',
+      'Automated bytecode verification against published source repositories',
+      'Validator uptime and geographic telemetry distribution',
+      'Rich GraphQL and REST APIs for third-party indexers',
+    ],
+    officialUrlNotice: 'The public block explorer will be accessible alongside testnet milestone 2.',
+    status: 'COMING SOON',
+    icon: Compass,
+  },
+  vortex: {
+    name: 'VORTEX INNOVATIONS',
+    tagline: 'Technology & Core Systems Research Enterprise',
+    role: 'Commercial Technology & Infrastructure Contributor',
+    description:
+      'VORTEX INNOVATIONS is a dedicated technology engineering company that conceptualizes, develops, and contributes core software architectures to open-source protocols, including early research for MONETA CHAIN.',
+    technicalOverview: [
+      'Core protocol engineering and systems software development',
+      'Commercial application suite integration and enterprise solutions',
+      'High-assurance cryptographic tooling and hardware acceleration',
+      'Active open-source contributor to public blockchain standards',
+    ],
+    officialUrlNotice: 'Corporate portal and technology showcases are scheduled for public launch in Q4 2026.',
+    status: 'COMING SOON',
+    icon: Globe2,
+  },
+};
+
+export const EcosystemStatusModal: React.FC<EcosystemStatusModalProps> = ({
+  isOpen,
+  onClose,
+  entity,
+}) => {
+  if (!isOpen || !entity) return null;
+
+  const data = ENTITY_DETAILS[entity];
+  const IconComponent = data.icon;
+
+  return (
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#050505]/85 backdrop-blur-xs animate-in fade-in duration-150"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="entity-modal-title"
+    >
+      <div
+        className="bg-[#15171A] border border-[#202328] rounded-2xl w-full max-w-xl overflow-hidden shadow-2xl relative animate-in zoom-in-95 duration-150"
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Header */}
+        <div className="bg-[#050505] text-white p-6 sm:p-7 relative border-b border-[#202328]">
+          <button
+            onClick={onClose}
+            className="absolute top-5 right-5 w-8 h-8 rounded-lg bg-[#15171A] hover:bg-[#202328] flex items-center justify-center text-[#A7ADB5] hover:text-[#FFFFFF] transition-colors focus:outline-none focus:ring-1 focus:ring-[#A7ADB5]"
+            aria-label="Close dialog"
+          >
+            <X className="w-4 h-4" />
+          </button>
+
+          <div className="flex items-center gap-3 mb-3">
+            <div className="w-10 h-10 rounded-lg bg-[#15171A] border border-[#202328] flex items-center justify-center text-[#FFFFFF]">
+              <IconComponent className="w-5 h-5" />
+            </div>
+            <div>
+              <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-[#A7ADB5] block">
+                {data.role}
+              </span>
+              <h3 id="entity-modal-title" className="text-xl sm:text-2xl font-bold font-display text-white">
+                {data.name}
+              </h3>
+            </div>
+          </div>
+
+          <p className="text-xs sm:text-sm text-[#A7ADB5] italic">
+            &ldquo;{data.tagline}&rdquo;
+          </p>
+        </div>
+
+        {/* Body */}
+        <div className="p-6 sm:p-7 space-y-5">
+          <div className="flex items-center justify-between p-3.5 rounded-lg bg-[#050505] border border-[#202328]">
+            <div className="flex items-center gap-2 text-xs font-bold text-[#FFFFFF]">
+              <Clock className="w-4 h-4 text-[#A7ADB5]" />
+              <span>Official Status</span>
+            </div>
+            <StatusBadge status={data.status} size="sm" />
+          </div>
+
+          <div>
+            <h4 className="text-xs font-mono uppercase tracking-wider text-[#A7ADB5] mb-2">
+              Role in the Moneta Ecosystem
+            </h4>
+            <p className="text-xs sm:text-sm text-[#FFFFFF] leading-relaxed">
+              {data.description}
+            </p>
+          </div>
+
+          <div>
+            <h4 className="text-xs font-mono uppercase tracking-wider text-[#A7ADB5] mb-2">
+              Key Architecture &amp; Capabilities
+            </h4>
+            <ul className="space-y-2">
+              {data.technicalOverview.map((item, idx) => (
+                <li key={idx} className="flex items-start gap-2.5 text-xs text-[#A7ADB5]">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#FFFFFF] mt-1.5 flex-shrink-0" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="p-4 rounded-lg bg-[#050505] border border-[#202328] space-y-1.5">
+            <div className="flex items-center justify-between text-xs font-mono text-[#FFFFFF]">
+              <span>OFFICIAL WEBSITE NOTICE</span>
+              <span className="text-[10px] uppercase tracking-widest text-[#A7ADB5]">
+                SCHEDULED PHASE
+              </span>
+            </div>
+            <p className="text-xs text-[#A7ADB5] leading-relaxed">
+              {data.officialUrlNotice} Verified links will appear here following independent cryptographic sign-off.
+            </p>
+          </div>
+
+          <div className="flex justify-end pt-2">
+            <button
+              onClick={onClose}
+              className="px-5 py-2 rounded-lg bg-[#FFFFFF] hover:bg-[#A7ADB5] text-[#050505] text-xs font-bold uppercase tracking-wider transition-all"
+            >
+              Close Window
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};

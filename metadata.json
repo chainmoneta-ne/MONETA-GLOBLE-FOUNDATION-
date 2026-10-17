@@ -1,0 +1,6 @@
+{
+  "name": "MONETA GLOBAL FOUNDATION",
+  "description": "Official website of MONETA GLOBAL FOUNDATION — Supporting the ecosystem. Protecting its independence. Building the future. Empower. Innovate. Unite.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
