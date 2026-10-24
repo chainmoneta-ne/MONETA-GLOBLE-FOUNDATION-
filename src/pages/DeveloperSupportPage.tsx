@@ -4,10 +4,17 @@ import { BackButton } from '../components/common/BackButton';
 import { 
   Terminal, 
   GitBranch, 
-  Server
+  Server,
+  Layers,
+  Compass,
+  Cpu,
+  Building2,
+  Scale,
+  ExternalLink
 } from 'lucide-react';
 import { UnderDevelopmentNotice } from '../components/common/UnderDevelopmentNotice';
 import { WaitlistModal } from '../components/common/WaitlistModal';
+import { OFFICIAL_ECOSYSTEM_LINKS } from '../data/foundationData';
 
 export const DeveloperSupportPage: React.FC = () => {
   const { navigateTo } = useNavigation();
@@ -31,6 +38,158 @@ export const DeveloperSupportPage: React.FC = () => {
           <p className="text-sm sm:text-base text-[#A7ADB5] leading-relaxed">
             SDKs, API documentation, testnet faucets, hackathons, and technical mentorship designed to accelerate developer productivity across the MONETA ecosystem.
           </p>
+        </div>
+
+        {/* Official Ecosystem Gateways */}
+        <div className="bg-[#15171A] p-8 sm:p-10 rounded-xl border border-[#202328] mb-12">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6">
+            <div>
+              <span className="text-xs font-mono uppercase tracking-widest text-[#A7ADB5] block mb-1">
+                ECOSYSTEM GATEWAYS
+              </span>
+              <h2 className="text-2xl font-bold font-display text-white">
+                Live Network &amp; Developer Portals
+              </h2>
+            </div>
+            <span className="text-xs font-mono text-[#A7ADB5]">VERIFIED DESTINATIONS</span>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {/* MONETA CHAIN */}
+            <a
+              href={OFFICIAL_ECOSYSTEM_LINKS.monetaChain.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-5 rounded-lg bg-[#050505] border border-[#202328] hover:border-[#A7ADB5] transition-all flex flex-col justify-between group"
+            >
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <div className="w-8 h-8 rounded-lg bg-[#15171A] border border-[#202328] flex items-center justify-center text-white">
+                    <Layers className="w-4 h-4" />
+                  </div>
+                  <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-[#202328] text-white">OFFICIAL SITE</span>
+                </div>
+                <h3 className="text-sm font-bold text-white font-display mb-1 group-hover:text-white">
+                  MONETA CHAIN
+                </h3>
+                <p className="text-xs text-[#A7ADB5] leading-relaxed mb-3">
+                  Core decentralized layer-1 blockchain network portal.
+                </p>
+              </div>
+              <div className="pt-2 border-t border-[#202328] flex items-center justify-between text-xs font-mono text-white">
+                <span>moneta-chain.vercel.app</span>
+                <ExternalLink className="w-3 h-3 text-[#A7ADB5] group-hover:text-white" />
+              </div>
+            </a>
+
+            {/* MONETA EXPLORER */}
+            <a
+              href={OFFICIAL_ECOSYSTEM_LINKS.monetaExplorer.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-5 rounded-lg bg-[#050505] border border-[#202328] hover:border-[#A7ADB5] transition-all flex flex-col justify-between group"
+            >
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <div className="w-8 h-8 rounded-lg bg-[#15171A] border border-[#202328] flex items-center justify-center text-white">
+                    <Compass className="w-4 h-4" />
+                  </div>
+                  <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-[#202328] text-white">EXPLORER</span>
+                </div>
+                <h3 className="text-sm font-bold text-white font-display mb-1 group-hover:text-white">
+                  MONETA EXPLORER
+                </h3>
+                <p className="text-xs text-[#A7ADB5] leading-relaxed mb-3">
+                  Block inspection, state telemetry, and contract verification.
+                </p>
+              </div>
+              <div className="pt-2 border-t border-[#202328] flex items-center justify-between text-xs font-mono text-white">
+                <span>moneta-explorer.vercel.app</span>
+                <ExternalLink className="w-3 h-3 text-[#A7ADB5] group-hover:text-white" />
+              </div>
+            </a>
+
+            {/* MONETA ORACLE */}
+            <a
+              href={OFFICIAL_ECOSYSTEM_LINKS.monetaOracle.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-5 rounded-lg bg-[#050505] border border-[#202328] hover:border-[#A7ADB5] transition-all flex flex-col justify-between group"
+            >
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <div className="w-8 h-8 rounded-lg bg-[#15171A] border border-[#202328] flex items-center justify-center text-white">
+                    <Cpu className="w-4 h-4" />
+                  </div>
+                  <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-[#202328] text-white">ORACLE</span>
+                </div>
+                <h3 className="text-sm font-bold text-white font-display mb-1 group-hover:text-white">
+                  MONETA ORACLE
+                </h3>
+                <p className="text-xs text-[#A7ADB5] leading-relaxed mb-3">
+                  Deterministic cryptographic pricing feeds and VRF tooling.
+                </p>
+              </div>
+              <div className="pt-2 border-t border-[#202328] flex items-center justify-between text-xs font-mono text-white">
+                <span>moneta-chain-oracal.vercel.app</span>
+                <ExternalLink className="w-3 h-3 text-[#A7ADB5] group-hover:text-white" />
+              </div>
+            </a>
+
+            {/* VORTEX INNOVATIONS */}
+            <a
+              href={OFFICIAL_ECOSYSTEM_LINKS.vortexInnovations.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-5 rounded-lg bg-[#050505] border border-[#202328] hover:border-[#A7ADB5] transition-all flex flex-col justify-between group"
+            >
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <div className="w-8 h-8 rounded-lg bg-[#15171A] border border-[#202328] flex items-center justify-center text-white">
+                    <Building2 className="w-4 h-4" />
+                  </div>
+                  <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-[#202328] text-white">ENGINEERING</span>
+                </div>
+                <h3 className="text-sm font-bold text-white font-display mb-1 group-hover:text-white">
+                  VORTEX INNOVATIONS
+                </h3>
+                <p className="text-xs text-[#A7ADB5] leading-relaxed mb-3">
+                  Commercial systems engineering and deep-tech protocols.
+                </p>
+              </div>
+              <div className="pt-2 border-t border-[#202328] flex items-center justify-between text-xs font-mono text-white">
+                <span>vortex-innvations.vercel.app</span>
+                <ExternalLink className="w-3 h-3 text-[#A7ADB5] group-hover:text-white" />
+              </div>
+            </a>
+
+            {/* MONETA GLOBAL FOUNDATION */}
+            <a
+              href={OFFICIAL_ECOSYSTEM_LINKS.monetaGlobalFoundation.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-5 rounded-lg bg-[#050505] border border-[#202328] hover:border-[#A7ADB5] transition-all flex flex-col justify-between group sm:col-span-2 lg:col-span-2"
+            >
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <div className="w-8 h-8 rounded-lg bg-[#15171A] border border-[#202328] flex items-center justify-center text-white">
+                    <Scale className="w-4 h-4" />
+                  </div>
+                  <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-[#202328] text-white">FOUNDATION STEWARD</span>
+                </div>
+                <h3 className="text-sm font-bold text-white font-display mb-1 group-hover:text-white">
+                  MONETA GLOBAL FOUNDATION
+                </h3>
+                <p className="text-xs text-[#A7ADB5] leading-relaxed mb-3">
+                  Independent non-profit ecosystem governance, research grants, educational public goods, and community stewardship.
+                </p>
+              </div>
+              <div className="pt-2 border-t border-[#202328] flex items-center justify-between text-xs font-mono text-white">
+                <span>moneta-globle-foundation.vercel.app</span>
+                <ExternalLink className="w-3 h-3 text-[#A7ADB5] group-hover:text-white" />
+              </div>
+            </a>
+          </div>
         </div>
 
         {/* Developer Sandbox Notice */}

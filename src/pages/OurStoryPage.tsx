@@ -137,8 +137,7 @@ export const OurStoryPage: React.FC = () => {
                   <CheckCircle2 className="w-4 h-4 text-[#FFFFFF]" />
                   <span>METRIC 0{idx + 1}</span>
                 </div>
-                <h3 className="text-sm font-bold text-white font-display">{item.title}</h3>
-                <p className="text-xs text-[#A7ADB5] leading-relaxed">{item.desc}</p>
+                <p className="text-sm font-medium text-white leading-relaxed">{item}</p>
               </div>
             ))}
           </div>

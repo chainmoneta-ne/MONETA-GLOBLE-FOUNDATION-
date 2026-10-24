@@ -16,9 +16,12 @@ import {
   Sparkles,
   Building2,
   Layers,
-  Cpu
+  Cpu,
+  Compass,
+  ExternalLink
 } from 'lucide-react';
 import { EcosystemStatusModal, EcosystemEntity } from '../common/EcosystemStatusModal';
+import { OFFICIAL_ECOSYSTEM_LINKS } from '../../data/foundationData';
 
 export const Navbar: React.FC = () => {
   const { currentPage, navigateTo } = useNavigation();
@@ -222,10 +225,10 @@ export const Navbar: React.FC = () => {
               </button>
 
               {activeDropdown === 'ecosystem' && (
-                <div className="absolute top-full left-0 mt-2 w-72 bg-[#15171A] rounded-xl border border-[#202328] shadow-2xl p-2 z-50 animate-in fade-in zoom-in-95 duration-100">
+                <div className="absolute top-full left-0 mt-2 w-80 bg-[#15171A] rounded-xl border border-[#202328] shadow-2xl p-2 z-50 animate-in fade-in zoom-in-95 duration-100">
                   <button
                     onClick={() => handleNav('ecosystem')}
-                    className="w-full text-left p-3 rounded-lg hover:bg-[#202328] transition-colors flex items-start gap-3"
+                    className="w-full text-left p-2.5 rounded-lg hover:bg-[#202328] transition-colors flex items-start gap-3 border-b border-[#202328]/60 mb-1"
                   >
                     <div className="w-8 h-8 rounded-lg bg-[#202328] flex items-center justify-center text-[#FFFFFF] flex-shrink-0 mt-0.5">
                       <Globe2 className="w-4 h-4" />
@@ -236,53 +239,81 @@ export const Navbar: React.FC = () => {
                     </div>
                   </button>
 
-                  <button
-                    onClick={() => {
-                      setActiveDropdown(null);
-                      setSelectedEcosystemEntity('chain');
-                    }}
-                    className="w-full text-left p-3 rounded-lg hover:bg-[#202328] transition-colors flex items-start gap-3"
+                  <a
+                    href={OFFICIAL_ECOSYSTEM_LINKS.monetaChain.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => setActiveDropdown(null)}
+                    className="w-full text-left p-2.5 rounded-lg hover:bg-[#202328] transition-colors flex items-start gap-3 group"
                   >
                     <div className="w-8 h-8 rounded-lg bg-[#202328] flex items-center justify-center text-[#FFFFFF] flex-shrink-0 mt-0.5">
                       <Layers className="w-4 h-4" />
                     </div>
-                    <div>
-                      <span className="text-xs font-bold block text-[#FFFFFF]">MONETA CHAIN</span>
-                      <span className="text-[10px] text-[#A7ADB5] font-mono uppercase block">Scheduled Launch</span>
+                    <div className="flex-1">
+                      <div className="flex items-center justify-between">
+                        <span className="text-xs font-bold block text-[#FFFFFF]">MONETA CHAIN</span>
+                        <ExternalLink className="w-3 h-3 text-[#A7ADB5] group-hover:text-white" />
+                      </div>
+                      <span className="text-[10px] text-[#A7ADB5] font-mono uppercase block">Official Website</span>
                     </div>
-                  </button>
+                  </a>
 
-                  <button
-                    onClick={() => {
-                      setActiveDropdown(null);
-                      setSelectedEcosystemEntity('vortex');
-                    }}
-                    className="w-full text-left p-3 rounded-lg hover:bg-[#202328] transition-colors flex items-start gap-3"
+                  <a
+                    href={OFFICIAL_ECOSYSTEM_LINKS.monetaExplorer.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => setActiveDropdown(null)}
+                    className="w-full text-left p-2.5 rounded-lg hover:bg-[#202328] transition-colors flex items-start gap-3 group"
                   >
                     <div className="w-8 h-8 rounded-lg bg-[#202328] flex items-center justify-center text-[#FFFFFF] flex-shrink-0 mt-0.5">
-                      <Building2 className="w-4 h-4" />
+                      <Compass className="w-4 h-4" />
                     </div>
-                    <div>
-                      <span className="text-xs font-bold block text-[#FFFFFF]">VORTEX INNOVATIONS</span>
-                      <span className="text-[10px] text-[#A7ADB5] font-mono uppercase block">Core Tech Contributor</span>
+                    <div className="flex-1">
+                      <div className="flex items-center justify-between">
+                        <span className="text-xs font-bold block text-[#FFFFFF]">MONETA EXPLORER</span>
+                        <ExternalLink className="w-3 h-3 text-[#A7ADB5] group-hover:text-white" />
+                      </div>
+                      <span className="text-[10px] text-[#A7ADB5] font-mono uppercase block">Ledger State Telemetry</span>
                     </div>
-                  </button>
+                  </a>
 
-                  <button
-                    onClick={() => {
-                      setActiveDropdown(null);
-                      setSelectedEcosystemEntity('oracle');
-                    }}
-                    className="w-full text-left p-3 rounded-lg hover:bg-[#202328] transition-colors flex items-start gap-3"
+                  <a
+                    href={OFFICIAL_ECOSYSTEM_LINKS.monetaOracle.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => setActiveDropdown(null)}
+                    className="w-full text-left p-2.5 rounded-lg hover:bg-[#202328] transition-colors flex items-start gap-3 group"
                   >
                     <div className="w-8 h-8 rounded-lg bg-[#202328] flex items-center justify-center text-[#FFFFFF] flex-shrink-0 mt-0.5">
                       <Cpu className="w-4 h-4" />
                     </div>
-                    <div>
-                      <span className="text-xs font-bold block text-[#FFFFFF]">MONETA ORACLE</span>
-                      <span className="text-[10px] text-[#A7ADB5] font-mono uppercase block">Under Development</span>
+                    <div className="flex-1">
+                      <div className="flex items-center justify-between">
+                        <span className="text-xs font-bold block text-[#FFFFFF]">MONETA ORACLE</span>
+                        <ExternalLink className="w-3 h-3 text-[#A7ADB5] group-hover:text-white" />
+                      </div>
+                      <span className="text-[10px] text-[#A7ADB5] font-mono uppercase block">Deterministic Data Feeds</span>
                     </div>
-                  </button>
+                  </a>
+
+                  <a
+                    href={OFFICIAL_ECOSYSTEM_LINKS.vortexInnovations.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => setActiveDropdown(null)}
+                    className="w-full text-left p-2.5 rounded-lg hover:bg-[#202328] transition-colors flex items-start gap-3 group"
+                  >
+                    <div className="w-8 h-8 rounded-lg bg-[#202328] flex items-center justify-center text-[#FFFFFF] flex-shrink-0 mt-0.5">
+                      <Building2 className="w-4 h-4" />
+                    </div>
+                    <div className="flex-1">
+                      <div className="flex items-center justify-between">
+                        <span className="text-xs font-bold block text-[#FFFFFF]">VORTEX INNOVATIONS</span>
+                        <ExternalLink className="w-3 h-3 text-[#A7ADB5] group-hover:text-white" />
+                      </div>
+                      <span className="text-[10px] text-[#A7ADB5] font-mono uppercase block">Core Tech Contributor</span>
+                    </div>
+                  </a>
                 </div>
               )}
             </div>
@@ -476,6 +507,57 @@ export const Navbar: React.FC = () => {
             >
               Developer Support &amp; Tooling
             </button>
+          </div>
+
+          <div className="space-y-1 pt-2 border-t border-[#202328]">
+            <div className="text-[10px] font-mono uppercase tracking-widest text-[#A7ADB5] px-3 py-1">
+              Official Ecosystem Portals
+            </div>
+            <a
+              href={OFFICIAL_ECOSYSTEM_LINKS.monetaChain.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full flex items-center justify-between px-3 py-2 rounded-lg text-xs font-semibold text-[#FFFFFF] hover:bg-[#15171A]"
+            >
+              <span>MONETA CHAIN</span>
+              <ExternalLink className="w-3 h-3 text-[#A7ADB5]" />
+            </a>
+            <a
+              href={OFFICIAL_ECOSYSTEM_LINKS.monetaExplorer.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full flex items-center justify-between px-3 py-2 rounded-lg text-xs font-semibold text-[#FFFFFF] hover:bg-[#15171A]"
+            >
+              <span>MONETA EXPLORER</span>
+              <ExternalLink className="w-3 h-3 text-[#A7ADB5]" />
+            </a>
+            <a
+              href={OFFICIAL_ECOSYSTEM_LINKS.monetaOracle.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full flex items-center justify-between px-3 py-2 rounded-lg text-xs font-semibold text-[#FFFFFF] hover:bg-[#15171A]"
+            >
+              <span>MONETA ORACLE</span>
+              <ExternalLink className="w-3 h-3 text-[#A7ADB5]" />
+            </a>
+            <a
+              href={OFFICIAL_ECOSYSTEM_LINKS.vortexInnovations.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full flex items-center justify-between px-3 py-2 rounded-lg text-xs font-semibold text-[#FFFFFF] hover:bg-[#15171A]"
+            >
+              <span>VORTEX INNOVATIONS</span>
+              <ExternalLink className="w-3 h-3 text-[#A7ADB5]" />
+            </a>
+            <a
+              href={OFFICIAL_ECOSYSTEM_LINKS.monetaGlobalFoundation.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full flex items-center justify-between px-3 py-2 rounded-lg text-xs font-semibold text-[#FFFFFF] hover:bg-[#15171A]"
+            >
+              <span>MONETA FOUNDATION PORTAL</span>
+              <ExternalLink className="w-3 h-3 text-[#A7ADB5]" />
+            </a>
           </div>
 
           <div className="space-y-1 pt-2 border-t border-[#202328]">

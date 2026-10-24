@@ -7,10 +7,12 @@ import {
   Compass, 
   Building2, 
   CheckCircle2, 
-  Clock,
-  Scale
+  Scale,
+  ExternalLink,
+  Info
 } from 'lucide-react';
 import { EcosystemStatusModal, EcosystemEntity } from '../components/common/EcosystemStatusModal';
+import { OFFICIAL_ECOSYSTEM_LINKS } from '../data/foundationData';
 
 export const EcosystemPage: React.FC = () => {
   const { navigateTo } = useNavigation();
@@ -71,13 +73,24 @@ export const EcosystemPage: React.FC = () => {
               </div>
             </div>
 
-            <button
-              onClick={() => setSelectedEntity('vortex')}
-              className="w-full py-2.5 rounded-lg bg-[#050505] hover:bg-[#202328] text-white text-xs font-bold uppercase tracking-wider transition-all border border-[#202328] flex items-center justify-center gap-2"
-            >
-              <span>View Entity Status</span>
-              <Clock className="w-3.5 h-3.5 text-[#A7ADB5]" />
-            </button>
+            <div className="space-y-2.5">
+              <a
+                href={OFFICIAL_ECOSYSTEM_LINKS.vortexInnovations.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full py-2.5 rounded-lg bg-[#FFFFFF] hover:bg-[#A7ADB5] text-[#050505] text-xs font-bold uppercase tracking-wider transition-all inline-flex items-center justify-center gap-2"
+              >
+                <span>Visit VORTEX INNOVATIONS</span>
+                <ExternalLink className="w-3.5 h-3.5" />
+              </a>
+              <button
+                onClick={() => setSelectedEntity('vortex')}
+                className="w-full py-2 rounded-lg bg-[#050505] hover:bg-[#202328] text-[#A7ADB5] hover:text-white text-xs font-semibold uppercase tracking-wider transition-all border border-[#202328] flex items-center justify-center gap-1.5"
+              >
+                <Info className="w-3.5 h-3.5" />
+                <span>Entity Specifications</span>
+              </button>
+            </div>
           </div>
 
           {/* PILLAR 2: MONETA GLOBAL FOUNDATION */}
@@ -112,12 +125,23 @@ export const EcosystemPage: React.FC = () => {
               </div>
             </div>
 
-            <button
-              onClick={() => navigateTo('about')}
-              className="w-full py-2.5 rounded-lg bg-[#FFFFFF] hover:bg-[#A7ADB5] text-[#050505] text-xs font-bold uppercase tracking-wider transition-all"
-            >
-              About Foundation Charter
-            </button>
+            <div className="space-y-2.5">
+              <a
+                href={OFFICIAL_ECOSYSTEM_LINKS.monetaGlobalFoundation.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full py-2.5 rounded-lg bg-[#FFFFFF] hover:bg-[#A7ADB5] text-[#050505] text-xs font-bold uppercase tracking-wider transition-all inline-flex items-center justify-center gap-2"
+              >
+                <span>Foundation Official Portal</span>
+                <ExternalLink className="w-3.5 h-3.5" />
+              </a>
+              <button
+                onClick={() => navigateTo('about')}
+                className="w-full py-2 rounded-lg bg-[#050505] hover:bg-[#202328] text-[#A7ADB5] hover:text-white text-xs font-semibold uppercase tracking-wider transition-all border border-[#202328] flex items-center justify-center gap-1.5"
+              >
+                <span>Foundation Charter</span>
+              </button>
+            </div>
           </div>
 
           {/* PILLAR 3: MONETA CHAIN */}
@@ -152,13 +176,24 @@ export const EcosystemPage: React.FC = () => {
               </div>
             </div>
 
-            <button
-              onClick={() => setSelectedEntity('chain')}
-              className="w-full py-2.5 rounded-lg bg-[#050505] hover:bg-[#202328] text-white text-xs font-bold uppercase tracking-wider transition-all border border-[#202328] flex items-center justify-center gap-2"
-            >
-              <span>View Network Status</span>
-              <Clock className="w-3.5 h-3.5 text-[#A7ADB5]" />
-            </button>
+            <div className="space-y-2.5">
+              <a
+                href={OFFICIAL_ECOSYSTEM_LINKS.monetaChain.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full py-2.5 rounded-lg bg-[#FFFFFF] hover:bg-[#A7ADB5] text-[#050505] text-xs font-bold uppercase tracking-wider transition-all inline-flex items-center justify-center gap-2"
+              >
+                <span>Visit MONETA CHAIN Website</span>
+                <ExternalLink className="w-3.5 h-3.5" />
+              </a>
+              <button
+                onClick={() => setSelectedEntity('chain')}
+                className="w-full py-2 rounded-lg bg-[#050505] hover:bg-[#202328] text-[#A7ADB5] hover:text-white text-xs font-semibold uppercase tracking-wider transition-all border border-[#202328] flex items-center justify-center gap-1.5"
+              >
+                <Info className="w-3.5 h-3.5" />
+                <span>Network Architecture</span>
+              </button>
+            </div>
           </div>
 
         </div>
@@ -169,54 +204,84 @@ export const EcosystemPage: React.FC = () => {
             INFRASTRUCTURE SUITE
           </span>
           <h2 className="text-2xl font-bold font-display text-white mb-6">
-            Ecosystem Utilities &amp; In-Progress Components
+            Ecosystem Utilities &amp; Live Infrastructure
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* MONETA ORACLE */}
             <div className="p-6 rounded-lg bg-[#050505] border border-[#202328] flex flex-col justify-between">
               <div>
-                <div className="flex items-center gap-3 mb-3">
-                  <div className="w-9 h-9 rounded-lg bg-[#15171A] border border-[#202328] flex items-center justify-center text-white">
-                    <Cpu className="w-4 h-4" />
+                <div className="flex items-center justify-between mb-3">
+                  <div className="flex items-center gap-3">
+                    <div className="w-9 h-9 rounded-lg bg-[#15171A] border border-[#202328] flex items-center justify-center text-white">
+                      <Cpu className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <h3 className="text-base font-bold text-white font-display">MONETA ORACLE</h3>
+                      <span className="text-[10px] font-mono uppercase tracking-widest text-[#A7ADB5]">Deterministic Data Feeds</span>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="text-base font-bold text-white font-display">MONETA ORACLE</h3>
-                    <span className="text-[10px] font-mono uppercase tracking-widest text-[#A7ADB5]">Deterministic Data Feeds</span>
-                  </div>
+                  <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-[#202328] text-white">ACTIVE</span>
                 </div>
                 <p className="text-xs text-[#A7ADB5] leading-relaxed mb-4">
                   Decentralized cryptographic feeds delivering verifiable real-world pricing data and randomness for smart contracts.
                 </p>
               </div>
-              <button
-                onClick={() => setSelectedEntity('oracle')}
-                className="text-xs font-mono text-white hover:text-[#A7ADB5] transition-colors inline-flex items-center gap-1.5"
-              >
-                <span>Inspect Oracle Status &rarr;</span>
-              </button>
+              <div className="flex items-center justify-between pt-2 border-t border-[#202328]">
+                <button
+                  onClick={() => setSelectedEntity('oracle')}
+                  className="text-xs text-[#A7ADB5] hover:text-white transition-colors"
+                >
+                  Technical Specs
+                </button>
+                <a
+                  href={OFFICIAL_ECOSYSTEM_LINKS.monetaOracle.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xs font-bold text-white hover:text-[#A7ADB5] transition-colors inline-flex items-center gap-1.5"
+                >
+                  <span>Launch MONETA ORACLE</span>
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </a>
+              </div>
             </div>
 
+            {/* MONETA EXPLORER */}
             <div className="p-6 rounded-lg bg-[#050505] border border-[#202328] flex flex-col justify-between">
               <div>
-                <div className="flex items-center gap-3 mb-3">
-                  <div className="w-9 h-9 rounded-lg bg-[#15171A] border border-[#202328] flex items-center justify-center text-white">
-                    <Compass className="w-4 h-4" />
+                <div className="flex items-center justify-between mb-3">
+                  <div className="flex items-center gap-3">
+                    <div className="w-9 h-9 rounded-lg bg-[#15171A] border border-[#202328] flex items-center justify-center text-white">
+                      <Compass className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <h3 className="text-base font-bold text-white font-display">MONETA EXPLORER</h3>
+                      <span className="text-[10px] font-mono uppercase tracking-widest text-[#A7ADB5]">Ledger State Telemetry</span>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="text-base font-bold text-white font-display">MONETA EXPLORER</h3>
-                    <span className="text-[10px] font-mono uppercase tracking-widest text-[#A7ADB5]">Ledger State Telemetry</span>
-                  </div>
+                  <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-[#202328] text-white">ACTIVE</span>
                 </div>
                 <p className="text-xs text-[#A7ADB5] leading-relaxed mb-4">
                   Transparent block indexing, smart contract verification, validator epoch inspection, and transaction receipts.
                 </p>
               </div>
-              <button
-                onClick={() => setSelectedEntity('explorer')}
-                className="text-xs font-mono text-white hover:text-[#A7ADB5] transition-colors inline-flex items-center gap-1.5"
-              >
-                <span>Inspect Explorer Status &rarr;</span>
-              </button>
+              <div className="flex items-center justify-between pt-2 border-t border-[#202328]">
+                <button
+                  onClick={() => setSelectedEntity('explorer')}
+                  className="text-xs text-[#A7ADB5] hover:text-white transition-colors"
+                >
+                  Technical Specs
+                </button>
+                <a
+                  href={OFFICIAL_ECOSYSTEM_LINKS.monetaExplorer.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xs font-bold text-white hover:text-[#A7ADB5] transition-colors inline-flex items-center gap-1.5"
+                >
+                  <span>Launch MONETA EXPLORER</span>
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </a>
+              </div>
             </div>
           </div>
         </div>

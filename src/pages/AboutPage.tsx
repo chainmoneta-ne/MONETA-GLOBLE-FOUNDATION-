@@ -8,9 +8,10 @@ import {
   Globe2, 
   Scale, 
   ArrowRight,
-  BookOpen
+  BookOpen,
+  ExternalLink
 } from 'lucide-react';
-import { FOUNDATION_CORE_VALUES, BOARD_MEMBERS } from '../data/foundationData';
+import { FOUNDATION_CORE_VALUES, BOARD_MEMBERS, OFFICIAL_ECOSYSTEM_LINKS } from '../data/foundationData';
 
 export const AboutPage: React.FC = () => {
   const { navigateTo } = useNavigation();
@@ -47,8 +48,29 @@ export const AboutPage: React.FC = () => {
             <p className="text-sm sm:text-base text-[#A7ADB5] leading-relaxed mb-6">
               The Foundation is an ecosystem steward, not the owner or ruler of MONETA CHAIN. Its purpose is to strengthen the ecosystem around MONETA while respecting the independence of the MONETA CHAIN network, its participants, developers, validators, applications, and governance mechanisms.
             </p>
-            <div className="p-4 rounded-lg bg-[#050505] border border-[#202328] text-xs sm:text-sm font-semibold text-[#FFFFFF]">
+            <div className="p-4 rounded-lg bg-[#050505] border border-[#202328] text-xs sm:text-sm font-semibold text-[#FFFFFF] mb-6">
               &ldquo;The Foundation&apos;s role is to provide resources, coordination, knowledge, opportunities, and support—not unilateral control.&rdquo;
+            </div>
+
+            <div className="flex flex-wrap items-center gap-4">
+              <a
+                href={OFFICIAL_ECOSYSTEM_LINKS.monetaChain.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-5 py-2.5 rounded-lg bg-[#FFFFFF] hover:bg-[#A7ADB5] text-[#050505] text-xs font-bold uppercase tracking-wider transition-all inline-flex items-center gap-2"
+              >
+                <span>Visit MONETA CHAIN</span>
+                <ExternalLink className="w-3.5 h-3.5" />
+              </a>
+              <a
+                href={OFFICIAL_ECOSYSTEM_LINKS.monetaGlobalFoundation.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-5 py-2.5 rounded-lg bg-[#050505] hover:bg-[#202328] border border-[#202328] text-white text-xs font-bold uppercase tracking-wider transition-all inline-flex items-center gap-2"
+              >
+                <span>Foundation Domain</span>
+                <ExternalLink className="w-3.5 h-3.5 text-[#A7ADB5]" />
+              </a>
             </div>
           </div>
         </div>

@@ -179,11 +179,14 @@ export const ResearchPage: React.FC = () => {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {ACADEMIC_PARTNERSHIPS.map((partner, idx) => (
-              <div key={idx} className="p-5 rounded-lg bg-[#050505] border border-[#202328] space-y-1.5">
-                <div className="text-xs font-mono text-[#A7ADB5]">{partner.region}</div>
-                <h3 className="text-sm font-bold text-white">{partner.institution}</h3>
-                <p className="text-xs text-[#A7ADB5]">{partner.focusArea}</p>
-                <div className="text-[11px] font-mono text-white pt-1">Status: {partner.status}</div>
+              <div key={idx} className="p-5 rounded-lg bg-[#050505] border border-[#202328] space-y-2">
+                <div className="flex justify-between items-center text-xs font-mono text-[#A7ADB5]">
+                  <span>INITIATIVE 0{idx + 1}</span>
+                  <span className="text-white text-[11px] px-2 py-0.5 rounded bg-[#202328]">ACTIVE</span>
+                </div>
+                <h3 className="text-sm font-bold text-white font-display">{partner.institution}</h3>
+                <div className="text-xs font-semibold text-[#FFFFFF]">{partner.focus}</div>
+                <p className="text-xs text-[#A7ADB5] leading-relaxed">{partner.summary}</p>
               </div>
             ))}
           </div>

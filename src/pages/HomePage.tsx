@@ -18,13 +18,16 @@ import {
   BookOpen,
   Award,
   Terminal,
-  Newspaper
+  Newspaper,
+  Compass,
+  ExternalLink
 } from 'lucide-react';
 import { 
   FOUNDATION_STATS, 
   PROGRAM_CARDS, 
   NEWS_AND_REPORTS,
-  TREASURY_ALLOCATION
+  TREASURY_ALLOCATION,
+  OFFICIAL_ECOSYSTEM_LINKS
 } from '../data/foundationData';
 import { EcosystemStatusModal, EcosystemEntity } from '../components/common/EcosystemStatusModal';
 import { WaitlistModal } from '../components/common/WaitlistModal';
@@ -282,12 +285,22 @@ export const HomePage: React.FC = () => {
               <p className="text-xs text-[#A7ADB5] leading-relaxed">
                 Non-commercial governance entity managing treasury grants, research fellowships, independent security audits, and educational public goods.
               </p>
-              <div className="pt-2">
+              <div className="pt-2 flex flex-wrap items-center gap-2">
+                <a
+                  href={OFFICIAL_ECOSYSTEM_LINKS.monetaGlobalFoundation.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xs font-bold text-[#FFFFFF] hover:text-[#A7ADB5] transition-colors inline-flex items-center gap-1.5"
+                >
+                  <span>Official Portal</span>
+                  <ExternalLink className="w-3 h-3 text-[#A7ADB5]" />
+                </a>
+                <span className="text-[#202328]">&bull;</span>
                 <button
                   onClick={() => navigateTo('governance')}
-                  className="text-xs font-semibold text-[#FFFFFF] hover:text-[#A7ADB5] transition-colors inline-flex items-center gap-1.5"
+                  className="text-xs text-[#A7ADB5] hover:text-white transition-colors"
                 >
-                  <span>Charter Bylaws &rarr;</span>
+                  Charter Bylaws &rarr;
                 </button>
               </div>
             </div>
@@ -308,12 +321,22 @@ export const HomePage: React.FC = () => {
               <p className="text-xs text-[#A7ADB5] leading-relaxed">
                 Autonomous, permissionless layer-1 public blockchain operated by independent validators across the world. No single entity owns the consensus state.
               </p>
-              <div className="pt-2">
+              <div className="pt-2 flex flex-wrap items-center gap-2">
+                <a
+                  href={OFFICIAL_ECOSYSTEM_LINKS.monetaChain.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xs font-bold text-[#FFFFFF] hover:text-[#A7ADB5] transition-colors inline-flex items-center gap-1.5"
+                >
+                  <span>Official Website</span>
+                  <ExternalLink className="w-3 h-3 text-[#A7ADB5]" />
+                </a>
+                <span className="text-[#202328]">&bull;</span>
                 <button
                   onClick={() => setSelectedEntity('chain')}
-                  className="text-xs font-semibold text-[#FFFFFF] hover:text-[#A7ADB5] transition-colors inline-flex items-center gap-1.5"
+                  className="text-xs text-[#A7ADB5] hover:text-white transition-colors"
                 >
-                  <span>Inspect Architecture &rarr;</span>
+                  Network Architecture &rarr;
                 </button>
               </div>
             </div>
@@ -334,16 +357,71 @@ export const HomePage: React.FC = () => {
               <p className="text-xs text-[#A7ADB5] leading-relaxed">
                 Commercial enterprise and core technology provider developing protocol software, developer SDKs, and enterprise application infrastructure.
               </p>
-              <div className="pt-2">
+              <div className="pt-2 flex flex-wrap items-center gap-2">
+                <a
+                  href={OFFICIAL_ECOSYSTEM_LINKS.vortexInnovations.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xs font-bold text-[#FFFFFF] hover:text-[#A7ADB5] transition-colors inline-flex items-center gap-1.5"
+                >
+                  <span>Official Website</span>
+                  <ExternalLink className="w-3 h-3 text-[#A7ADB5]" />
+                </a>
+                <span className="text-[#202328]">&bull;</span>
                 <button
                   onClick={() => setSelectedEntity('vortex')}
-                  className="text-xs font-semibold text-[#FFFFFF] hover:text-[#A7ADB5] transition-colors inline-flex items-center gap-1.5"
+                  className="text-xs text-[#A7ADB5] hover:text-white transition-colors"
                 >
-                  <span>Technology Role &rarr;</span>
+                  Technology Role &rarr;
                 </button>
               </div>
             </div>
 
+          </div>
+
+          {/* Quick Ecosystem Utilities Strip */}
+          <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <a
+              href={OFFICIAL_ECOSYSTEM_LINKS.monetaExplorer.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-4 rounded-xl bg-[#15171A] border border-[#202328] hover:border-[#A7ADB5] transition-all flex items-center justify-between group"
+            >
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-8 rounded-lg bg-[#050505] border border-[#202328] flex items-center justify-center text-white">
+                  <Compass className="w-4 h-4" />
+                </div>
+                <div>
+                  <div className="text-xs font-bold text-white group-hover:text-white flex items-center gap-2">
+                    <span>MONETA EXPLORER</span>
+                    <span className="text-[10px] font-mono px-1.5 py-0.2 bg-[#202328] text-[#A7ADB5] rounded">LIVE</span>
+                  </div>
+                  <span className="text-[11px] text-[#A7ADB5]">Inspect ledger state and blocks</span>
+                </div>
+              </div>
+              <ExternalLink className="w-4 h-4 text-[#A7ADB5] group-hover:text-white transition-colors" />
+            </a>
+
+            <a
+              href={OFFICIAL_ECOSYSTEM_LINKS.monetaOracle.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-4 rounded-xl bg-[#15171A] border border-[#202328] hover:border-[#A7ADB5] transition-all flex items-center justify-between group"
+            >
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-8 rounded-lg bg-[#050505] border border-[#202328] flex items-center justify-center text-white">
+                  <Cpu className="w-4 h-4" />
+                </div>
+                <div>
+                  <div className="text-xs font-bold text-white group-hover:text-white flex items-center gap-2">
+                    <span>MONETA ORACLE</span>
+                    <span className="text-[10px] font-mono px-1.5 py-0.2 bg-[#202328] text-[#A7ADB5] rounded">LIVE</span>
+                  </div>
+                  <span className="text-[11px] text-[#A7ADB5]">Deterministic cryptographic data feeds</span>
+                </div>
+              </div>
+              <ExternalLink className="w-4 h-4 text-[#A7ADB5] group-hover:text-white transition-colors" />
+            </a>
           </div>
 
         </div>

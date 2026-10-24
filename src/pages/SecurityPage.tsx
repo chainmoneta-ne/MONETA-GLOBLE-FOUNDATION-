@@ -115,7 +115,7 @@ export const SecurityPage: React.FC = () => {
                 </div>
 
                 <h3 className="text-base sm:text-lg font-bold text-white font-display">
-                  {audit.target}
+                  {audit.title}
                 </h3>
 
                 <p className="text-xs text-[#A7ADB5] leading-relaxed">

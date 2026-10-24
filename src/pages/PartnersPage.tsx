@@ -4,9 +4,10 @@ import { BackButton } from '../components/common/BackButton';
 import { 
   Building2, 
   GraduationCap, 
-  Globe2
+  Globe2,
+  ExternalLink
 } from 'lucide-react';
-import { ACADEMIC_PARTNERSHIPS } from '../data/foundationData';
+import { ACADEMIC_PARTNERSHIPS, OFFICIAL_ECOSYSTEM_LINKS } from '../data/foundationData';
 import { UnderDevelopmentNotice } from '../components/common/UnderDevelopmentNotice';
 
 export const PartnersPage: React.FC = () => {
@@ -82,6 +83,32 @@ export const PartnersPage: React.FC = () => {
           </div>
         </div>
 
+        {/* Core Systems Contributor Spotlight */}
+        <div className="bg-[#15171A] p-8 sm:p-10 rounded-xl border border-[#202328] mb-12">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+            <div className="space-y-2 max-w-2xl">
+              <span className="text-xs font-mono uppercase tracking-widest text-[#A7ADB5] block">
+                CORE SYSTEMS &amp; TECHNOLOGY CONTRIBUTOR
+              </span>
+              <h2 className="text-2xl font-bold font-display text-white">
+                VORTEX INNOVATIONS
+              </h2>
+              <p className="text-xs sm:text-sm text-[#A7ADB5] leading-relaxed">
+                Dedicated commercial deep-tech engineering enterprise providing protocol software, developer toolchains, and hardware acceleration architectures to open-source protocols, including research for MONETA CHAIN.
+              </p>
+            </div>
+            <a
+              href={OFFICIAL_ECOSYSTEM_LINKS.vortexInnovations.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 py-3 rounded-lg bg-[#FFFFFF] hover:bg-[#A7ADB5] text-[#050505] text-xs font-bold uppercase tracking-wider transition-all inline-flex items-center gap-2 flex-shrink-0"
+            >
+              <span>Visit VORTEX INNOVATIONS</span>
+              <ExternalLink className="w-3.5 h-3.5" />
+            </a>
+          </div>
+        </div>
+
         {/* Current Academic Partners */}
         <div className="bg-[#15171A] p-8 sm:p-10 rounded-xl border border-[#202328] mb-12">
           <span className="text-xs font-mono uppercase tracking-widest text-[#A7ADB5] block mb-2">
@@ -93,13 +120,14 @@ export const PartnersPage: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {ACADEMIC_PARTNERSHIPS.map((p, idx) => (
-              <div key={idx} className="p-5 rounded-lg bg-[#050505] border border-[#202328] space-y-1.5">
-                <div className="flex justify-between text-xs font-mono text-[#A7ADB5]">
-                  <span>{p.region}</span>
-                  <span className="text-white">{p.status}</span>
+              <div key={idx} className="p-5 rounded-lg bg-[#050505] border border-[#202328] space-y-2">
+                <div className="flex justify-between items-center text-xs font-mono text-[#A7ADB5]">
+                  <span>COLLABORATION 0{idx + 1}</span>
+                  <span className="text-white text-[11px] px-2 py-0.5 rounded bg-[#202328]">ACTIVE</span>
                 </div>
-                <h3 className="text-base font-bold text-white">{p.institution}</h3>
-                <p className="text-xs text-[#A7ADB5]">{p.focusArea}</p>
+                <h3 className="text-base font-bold text-white font-display">{p.institution}</h3>
+                <div className="text-xs font-semibold text-[#FFFFFF]">{p.focus}</div>
+                <p className="text-xs text-[#A7ADB5] leading-relaxed">{p.summary}</p>
               </div>
             ))}
           </div>

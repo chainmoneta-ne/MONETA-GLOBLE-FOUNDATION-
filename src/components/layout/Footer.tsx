@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { useNavigation } from '../../context/NavigationContext';
 import { Logo } from '../Logo';
-import { Mail, Clock } from 'lucide-react';
+import { Mail, ExternalLink } from 'lucide-react';
 import { EcosystemStatusModal, EcosystemEntity } from '../common/EcosystemStatusModal';
 import { WaitlistModal } from '../common/WaitlistModal';
+import { OFFICIAL_ECOSYSTEM_LINKS } from '../../data/foundationData';
 
 export const Footer: React.FC = () => {
   const { navigateTo } = useNavigation();
@@ -42,10 +43,21 @@ export const Footer: React.FC = () => {
               MONETA GLOBAL FOUNDATION is an independent global foundation established to support innovation, research, education, security, open technology, developers, communities, and sustainable ecosystem development.
             </p>
 
-            <div className="p-3.5 rounded-lg bg-[#15171A] border border-[#202328] max-w-lg">
+            <div className="p-4 rounded-lg bg-[#15171A] border border-[#202328] max-w-lg space-y-2">
               <p className="text-[11px] text-[#A7ADB5] leading-relaxed">
                 <strong className="text-[#FFFFFF]">Institutional Principle:</strong> We support MONETA CHAIN. We do not control MONETA CHAIN.
               </p>
+              <div className="pt-1 flex items-center gap-2">
+                <a
+                  href={OFFICIAL_ECOSYSTEM_LINKS.monetaGlobalFoundation.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[11px] font-mono text-[#FFFFFF] hover:text-[#A7ADB5] transition-colors inline-flex items-center gap-1.5"
+                >
+                  <span>Official Foundation Portal</span>
+                  <ExternalLink className="w-3 h-3 text-[#A7ADB5]" />
+                </a>
+              </div>
             </div>
           </div>
 
@@ -170,7 +182,7 @@ export const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Column 3: Ecosystem */}
+          {/* Column 3: Ecosystem (Connected with Official Links) */}
           <div className="space-y-3">
             <h4 className="font-mono uppercase tracking-wider text-[#FFFFFF] text-[11px]">
               Ecosystem
@@ -182,28 +194,48 @@ export const Footer: React.FC = () => {
                 </button>
               </li>
               <li>
-                <button onClick={() => setSelectedEntity('chain')} className="hover:text-white transition-colors flex items-center gap-1.5">
+                <a
+                  href={OFFICIAL_ECOSYSTEM_LINKS.monetaChain.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition-colors flex items-center justify-between group"
+                >
                   <span>MONETA CHAIN</span>
-                  <Clock className="w-3 h-3 text-[#A7ADB5]" />
-                </button>
+                  <ExternalLink className="w-3 h-3 text-[#A7ADB5] group-hover:text-white" />
+                </a>
               </li>
               <li>
-                <button onClick={() => setSelectedEntity('vortex')} className="hover:text-white transition-colors flex items-center gap-1.5">
+                <a
+                  href={OFFICIAL_ECOSYSTEM_LINKS.vortexInnovations.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition-colors flex items-center justify-between group"
+                >
                   <span>VORTEX INNOVATIONS</span>
-                  <Clock className="w-3 h-3 text-[#A7ADB5]" />
-                </button>
+                  <ExternalLink className="w-3 h-3 text-[#A7ADB5] group-hover:text-white" />
+                </a>
               </li>
               <li>
-                <button onClick={() => setSelectedEntity('oracle')} className="hover:text-white transition-colors flex items-center gap-1.5">
+                <a
+                  href={OFFICIAL_ECOSYSTEM_LINKS.monetaOracle.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition-colors flex items-center justify-between group"
+                >
                   <span>MONETA ORACLE</span>
-                  <Clock className="w-3 h-3 text-[#A7ADB5]" />
-                </button>
+                  <ExternalLink className="w-3 h-3 text-[#A7ADB5] group-hover:text-white" />
+                </a>
               </li>
               <li>
-                <button onClick={() => setSelectedEntity('explorer')} className="hover:text-white transition-colors flex items-center gap-1.5">
+                <a
+                  href={OFFICIAL_ECOSYSTEM_LINKS.monetaExplorer.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition-colors flex items-center justify-between group"
+                >
                   <span>MONETA EXPLORER</span>
-                  <Clock className="w-3 h-3 text-[#A7ADB5]" />
-                </button>
+                  <ExternalLink className="w-3 h-3 text-[#A7ADB5] group-hover:text-white" />
+                </a>
               </li>
               <li>
                 <button onClick={() => navigateTo('developer-support')} className="hover:text-white transition-colors">
@@ -280,6 +312,16 @@ export const Footer: React.FC = () => {
           </div>
 
           <div className="flex flex-wrap items-center justify-center gap-4 text-[11px]">
+            <a
+              href={OFFICIAL_ECOSYSTEM_LINKS.monetaGlobalFoundation.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white transition-colors inline-flex items-center gap-1 text-[#FFFFFF]"
+            >
+              <span>Foundation Domain</span>
+              <ExternalLink className="w-2.5 h-2.5" />
+            </a>
+            <span>&bull;</span>
             <button onClick={() => navigateTo('privacy')} className="hover:text-white transition-colors">Privacy</button>
             <span>&bull;</span>
             <button onClick={() => navigateTo('terms')} className="hover:text-white transition-colors">Terms</button>

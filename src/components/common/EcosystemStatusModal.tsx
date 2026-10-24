@@ -1,5 +1,5 @@
 import React from 'react';
-import { X, Clock, Layers, Cpu, Globe2, Compass } from 'lucide-react';
+import { X, Layers, Cpu, Globe2, Compass, ExternalLink, ShieldCheck } from 'lucide-react';
 import { StatusBadge } from './StatusBadge';
 
 export type EcosystemEntity = 'chain' | 'oracle' | 'explorer' | 'vortex';
@@ -18,8 +18,9 @@ const ENTITY_DETAILS: Record<
     role: string;
     description: string;
     technicalOverview: string[];
+    officialUrl: string;
     officialUrlNotice: string;
-    status: 'COMING SOON' | 'UNDER DEVELOPMENT';
+    status: 'LIVE' | 'COMING SOON' | 'UNDER DEVELOPMENT';
     icon: React.ElementType;
   }
 > = {
@@ -35,8 +36,9 @@ const ENTITY_DETAILS: Record<
       'Sub-second settlement with predictable, minimal network fees',
       'Independent cryptographic validator network spanning multiple continents',
     ],
-    officialUrlNotice: 'Official mainnet explorer and network portal are currently in staging.',
-    status: 'COMING SOON',
+    officialUrl: 'https://moneta-chain.vercel.app/',
+    officialUrlNotice: 'Official MONETA CHAIN portal is active. Inspect network architecture and node specifications.',
+    status: 'LIVE',
     icon: Layers,
   },
   oracle: {
@@ -51,8 +53,9 @@ const ENTITY_DETAILS: Record<
       'Zero-knowledge proof validity proofs for cross-chain data verification',
       'Independent node operator quorum protection',
     ],
-    officialUrlNotice: 'Developer documentation and oracle feed telemetry will launch with the public testnet.',
-    status: 'UNDER DEVELOPMENT',
+    officialUrl: 'https://moneta-chain-oracal.vercel.app',
+    officialUrlNotice: 'Official MONETA ORACLE portal is live with oracle feed feeds and developer documentation.',
+    status: 'LIVE',
     icon: Cpu,
   },
   explorer: {
@@ -67,8 +70,9 @@ const ENTITY_DETAILS: Record<
       'Validator uptime and geographic telemetry distribution',
       'Rich GraphQL and REST APIs for third-party indexers',
     ],
-    officialUrlNotice: 'The public block explorer will be accessible alongside testnet milestone 2.',
-    status: 'COMING SOON',
+    officialUrl: 'https://moneta-explorer.vercel.app',
+    officialUrlNotice: 'Official MONETA EXPLORER is accessible for telemetry and ledger state inspection.',
+    status: 'LIVE',
     icon: Compass,
   },
   vortex: {
@@ -76,15 +80,16 @@ const ENTITY_DETAILS: Record<
     tagline: 'Technology & Core Systems Research Enterprise',
     role: 'Commercial Technology & Infrastructure Contributor',
     description:
-      'VORTEX INNOVATIONS is a dedicated technology engineering company that conceptualizes, develops, and contributes core software architectures to open-source protocols, including early research for MONETA CHAIN.',
+      'VORTEX INNOVATIONS is a dedicated technology engineering company that conceptualizes, develops, and contributes core software architectures to open-source protocols, including research for MONETA CHAIN.',
     technicalOverview: [
       'Core protocol engineering and systems software development',
       'Commercial application suite integration and enterprise solutions',
       'High-assurance cryptographic tooling and hardware acceleration',
       'Active open-source contributor to public blockchain standards',
     ],
-    officialUrlNotice: 'Corporate portal and technology showcases are scheduled for public launch in Q4 2026.',
-    status: 'COMING SOON',
+    officialUrl: 'https://vortex-innvations.vercel.app',
+    officialUrlNotice: 'Official VORTEX INNOVATIONS corporate engineering portal and deep-tech showcase.',
+    status: 'LIVE',
     icon: Globe2,
   },
 };
@@ -143,8 +148,8 @@ export const EcosystemStatusModal: React.FC<EcosystemStatusModalProps> = ({
         <div className="p-6 sm:p-7 space-y-5">
           <div className="flex items-center justify-between p-3.5 rounded-lg bg-[#050505] border border-[#202328]">
             <div className="flex items-center gap-2 text-xs font-bold text-[#FFFFFF]">
-              <Clock className="w-4 h-4 text-[#A7ADB5]" />
-              <span>Official Status</span>
+              <ShieldCheck className="w-4 h-4 text-[#A7ADB5]" />
+              <span>Verified Ecosystem Entity</span>
             </div>
             <StatusBadge status={data.status} size="sm" />
           </div>
@@ -172,25 +177,39 @@ export const EcosystemStatusModal: React.FC<EcosystemStatusModalProps> = ({
             </ul>
           </div>
 
-          <div className="p-4 rounded-lg bg-[#050505] border border-[#202328] space-y-1.5">
+          {/* Official Link Banner */}
+          <div className="p-4 rounded-lg bg-[#050505] border border-[#202328] space-y-2.5">
             <div className="flex items-center justify-between text-xs font-mono text-[#FFFFFF]">
-              <span>OFFICIAL WEBSITE NOTICE</span>
+              <span className="uppercase tracking-wider">OFFICIAL DESTINATION</span>
               <span className="text-[10px] uppercase tracking-widest text-[#A7ADB5]">
-                SCHEDULED PHASE
+                VERIFIED URL
               </span>
             </div>
             <p className="text-xs text-[#A7ADB5] leading-relaxed">
-              {data.officialUrlNotice} Verified links will appear here following independent cryptographic sign-off.
+              {data.officialUrlNotice}
             </p>
+            <div className="text-[11px] font-mono text-white/80 bg-[#15171A] px-3 py-1.5 rounded border border-[#202328] break-all select-all">
+              {data.officialUrl}
+            </div>
           </div>
 
-          <div className="flex justify-end pt-2">
+          {/* Action Buttons */}
+          <div className="flex items-center justify-between pt-2 gap-3">
             <button
               onClick={onClose}
-              className="px-5 py-2 rounded-lg bg-[#FFFFFF] hover:bg-[#A7ADB5] text-[#050505] text-xs font-bold uppercase tracking-wider transition-all"
+              className="px-4 py-2.5 rounded-lg bg-[#050505] hover:bg-[#202328] border border-[#202328] text-[#A7ADB5] hover:text-white text-xs font-bold uppercase tracking-wider transition-all"
             >
-              Close Window
+              Close
             </button>
+            <a
+              href={data.officialUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-5 py-2.5 rounded-lg bg-[#FFFFFF] hover:bg-[#A7ADB5] text-[#050505] text-xs font-bold uppercase tracking-wider transition-all inline-flex items-center gap-2"
+            >
+              <span>Visit Official Website</span>
+              <ExternalLink className="w-3.5 h-3.5" />
+            </a>
           </div>
         </div>
       </div>

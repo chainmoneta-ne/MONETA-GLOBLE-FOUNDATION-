@@ -152,8 +152,7 @@ export const MissionVisionPage: React.FC = () => {
             {FOUNDATION_PROMISE.map((promise, idx) => (
               <div key={idx} className="p-5 rounded-lg bg-[#050505] border border-[#202328] space-y-2">
                 <div className="text-xs font-mono text-[#A7ADB5]">PROMISE 0{idx + 1}</div>
-                <h3 className="text-sm font-bold text-white font-display">{promise.title}</h3>
-                <p className="text-xs text-[#A7ADB5] leading-relaxed">{promise.desc}</p>
+                <p className="text-sm font-medium text-white leading-relaxed">{promise}</p>
               </div>
             ))}
           </div>

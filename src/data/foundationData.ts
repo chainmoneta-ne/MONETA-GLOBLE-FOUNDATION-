@@ -844,6 +844,40 @@ export const GOVERNANCE_POLICIES: GovernancePolicy[] = [
   }
 ];
 
+export const OFFICIAL_ECOSYSTEM_LINKS = {
+  monetaChain: {
+    name: 'MONETA CHAIN',
+    url: 'https://moneta-chain.vercel.app/',
+    description: 'Official decentralized layer-1 blockchain network portal',
+    badge: 'Official Website',
+  },
+  monetaExplorer: {
+    name: 'MONETA EXPLORER',
+    url: 'https://moneta-explorer.vercel.app',
+    description: 'Block indexer, validator state, and ledger state telemetry',
+    badge: 'Explorer Portal',
+  },
+  monetaOracle: {
+    name: 'MONETA ORACLE',
+    url: 'https://moneta-chain-oracal.vercel.app',
+    description: 'Decentralized cryptographic data feeds and verifiable pricing',
+    badge: 'Oracle Gateway',
+  },
+  vortexInnovations: {
+    name: 'VORTEX INNOVATIONS',
+    url: 'https://vortex-innvations.vercel.app',
+    description: 'Dedicated commercial deep-tech engineering and core systems contributor',
+    badge: 'Technology Contributor',
+  },
+  monetaGlobalFoundation: {
+    name: 'MONETA GLOBAL FOUNDATION',
+    url: 'https://moneta-globle-foundation.vercel.app',
+    description: 'Official production portal for the independent global foundation steward',
+    badge: 'Foundation Portal',
+  },
+} as const;
+
+
 
 
 
